@@ -352,3 +352,32 @@ export const ControlledActivation: StoryFn<Props<StringCell>> = (props) => {
     </div>
   );
 };
+
+function createData(size = 100) {
+  const data: Matrix.Matrix<CellBase<any>> = [];
+  for (let i = 0; i < size; i++) {
+    data.push([]);
+    for (let j = 0; j < size; j++) {
+      data[i].push({
+        value: `${i},${j}`,
+        readOnly: false,
+      });
+    }
+  }
+  return data;
+}
+
+export const ControlledWithLargeData: StoryFn<Props<StringCell>> = (props) => {
+  const [data, setData] = React.useState(() => createData());
+
+  return (
+    <Spreadsheet
+      {...props}
+      data={data}
+      darkMode
+      onChange={(data) => {
+        setData(data);
+      }}
+    />
+  );
+};
