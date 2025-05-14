@@ -53,6 +53,7 @@
     "@storybook/react": "^8.6.11",
     "@storybook/react-webpack5": "^8.6.11",
     "@storybook/test": "^8.6.11",
+    "@testing-library/dom": "^10.4.0",
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^16.1.0",
     "@types/array.prototype.flatmap": "^1.2.2",
