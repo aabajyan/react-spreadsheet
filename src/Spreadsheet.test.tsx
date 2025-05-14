@@ -220,7 +220,7 @@ describe("<Spreadsheet />", () => {
       },
     });
     // Check onChange is called
-    expect(EXAMPLE_PROPS.onChange).toBeCalledTimes(1);
+    expect(EXAMPLE_PROPS.onChange).toHaveBeenCalledTimes(1);
     expect(EXAMPLE_PROPS.onChange).toBeCalledWith(EXAMPLE_MODIFIED_DATA);
   });
   test("handles external change of data correctly", () => {
@@ -289,7 +289,7 @@ describe("<Spreadsheet />", () => {
       shiftKey: true,
     });
     // Check onSelect is called with the range of cells on selection
-    expect(onSelect).toBeCalledTimes(1);
+    expect(onSelect).toHaveBeenCalledTimes(1);
     expect(onSelect).toBeCalledWith(
       new RangeSelection(new PointRange(Point.ORIGIN, { row: 1, column: 1 }))
     );
@@ -372,7 +372,7 @@ describe("<Spreadsheet />", () => {
     const cornerIndicator = safeQuerySelector(element, "th");
     fireEvent.click(cornerIndicator);
     expect(handleSelect).toBeCalledWith(new EntireWorksheetSelection());
-    expect(handleSelect).toBeCalledTimes(1);
+    expect(handleSelect).toHaveBeenCalledTimes(1);
   });
   test("select entire row", () => {
     const handleSelect = jest.fn();

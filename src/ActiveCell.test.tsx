@@ -42,7 +42,7 @@ describe("<ActiveCell />", () => {
       </context.Provider>
     );
     expect(document.querySelector(".Spreadsheet__active-cell")).toBeNull();
-    expect(MOCK_DATA_EDITOR).toBeCalledTimes(0);
+    expect(MOCK_DATA_EDITOR).toHaveBeenCalledTimes(0);
   });
   test("renders when active is defined", () => {
     render(
@@ -53,7 +53,7 @@ describe("<ActiveCell />", () => {
     const activeCell = document.querySelector(".Spreadsheet__active-cell");
     expect(activeCell).not.toBeNull();
     expect(activeCell).toHaveClass("Spreadsheet__active-cell--view");
-    expect(MOCK_DATA_EDITOR).toBeCalledTimes(0);
+    expect(MOCK_DATA_EDITOR).toHaveBeenCalledTimes(0);
   });
   test("renders in edit mode", () => {
     render(
@@ -66,7 +66,7 @@ describe("<ActiveCell />", () => {
     const activeCell = document.querySelector(".Spreadsheet__active-cell");
     expect(activeCell).not.toBeNull();
     expect(activeCell).toHaveClass("Spreadsheet__active-cell--edit");
-    expect(MOCK_DATA_EDITOR).toBeCalledTimes(2);
+    expect(MOCK_DATA_EDITOR).toHaveBeenCalledTimes(2);
     expect(MOCK_DATA_EDITOR).toBeCalledWith(
       {
         row: Point.ORIGIN.row,
@@ -92,7 +92,7 @@ describe("<ActiveCell />", () => {
     const input = activeCell?.querySelector("input");
     if (!input) throw new Error("input not found");
     fireEvent.change(input, { target: { value: "test" } });
-    expect(DISPATCH_MOCK).toBeCalledTimes(1);
+    expect(DISPATCH_MOCK).toHaveBeenCalledTimes(1);
     expect(DISPATCH_MOCK).toBeCalledWith(
       Actions.setCellData(Point.ORIGIN, {
         value: "test",
@@ -125,7 +125,7 @@ describe("<ActiveCell />", () => {
         <ActiveCell DataEditor={MOCK_DATA_EDITOR} />
       </context.Provider>
     );
-    expect(DISPATCH_MOCK).toBeCalledTimes(0);
+    expect(DISPATCH_MOCK).toHaveBeenCalledTimes(0);
     expect(activeCell).not.toHaveClass("Spreadsheet__active-cell--edit");
   });
 });

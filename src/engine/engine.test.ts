@@ -35,7 +35,7 @@ describe("getFormulaComputedValue()", () => {
     expect(
       getFormulaComputedValue(EXAMPLE_FORMULA, ORIGIN, MOCK_FORMULA_PARSER)
     ).toBe(expected);
-    expect(MOCK_FORMULA_PARSER.parse).toBeCalledTimes(1);
+    expect(MOCK_FORMULA_PARSER.parse).toHaveBeenCalledTimes(1);
     expect(MOCK_FORMULA_PARSER.parse).toBeCalledWith(
       Formula.extractFormula(EXAMPLE_FORMULA),
       { col: 1, row: 1, sheet: "Sheet1" }

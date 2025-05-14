@@ -34,6 +34,6 @@ describe("<CornerIndicator />", () => {
       "th.Spreadsheet__header"
     ) as HTMLTableCellElement;
     indicator.click();
-    expect(EXAMPLE_PROPS.onSelect).toBeCalledTimes(1);
+    expect(EXAMPLE_PROPS.onSelect).toHaveBeenCalledTimes(1);
   });
 });

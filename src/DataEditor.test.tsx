@@ -34,8 +34,8 @@ describe("<DataEditor />", () => {
     const input = document.querySelector(".Spreadsheet__data-editor input");
     expect(element).not.toBeNull();
     expect(input).not.toBeNull();
-    expect(ON_CHANGE_MOCK).toBeCalledTimes(0);
-    expect(MOVE_CURSOR_TO_END_MOCK).toBeCalledTimes(1);
+    expect(ON_CHANGE_MOCK).toHaveBeenCalledTimes(0);
+    expect(MOVE_CURSOR_TO_END_MOCK).toHaveBeenCalledTimes(1);
     expect(MOVE_CURSOR_TO_END_MOCK).toBeCalledWith(input);
   });
   test("renders correctly with null value", () => {
@@ -45,15 +45,15 @@ describe("<DataEditor />", () => {
     );
     expect(input).not.toBeNull();
     expect(input?.value).toBe("");
-    expect(ON_CHANGE_MOCK).toBeCalledTimes(0);
-    expect(MOVE_CURSOR_TO_END_MOCK).toBeCalledTimes(1);
+    expect(ON_CHANGE_MOCK).toHaveBeenCalledTimes(0);
+    expect(MOVE_CURSOR_TO_END_MOCK).toHaveBeenCalledTimes(1);
   });
   test("renders correctly without cell", () => {
     render(<DataEditor {...EXAMPLE_PROPS} cell={undefined} />);
     const element = document.querySelector(".Spreadsheet__data-editor");
     expect(element).not.toBeNull();
-    expect(ON_CHANGE_MOCK).toBeCalledTimes(0);
-    expect(MOVE_CURSOR_TO_END_MOCK).toBeCalledTimes(1);
+    expect(ON_CHANGE_MOCK).toHaveBeenCalledTimes(0);
+    expect(MOVE_CURSOR_TO_END_MOCK).toHaveBeenCalledTimes(1);
   });
   test("handles change events correctly", async () => {
     render(<DataEditor {...EXAMPLE_PROPS} />);
@@ -64,11 +64,11 @@ describe("<DataEditor />", () => {
     if (!input) {
       throw new Error("Input must be defined");
     }
-    expect(ON_CHANGE_MOCK).toBeCalledTimes(0);
-    expect(MOVE_CURSOR_TO_END_MOCK).toBeCalledTimes(1);
+    expect(ON_CHANGE_MOCK).toHaveBeenCalledTimes(0);
+    expect(MOVE_CURSOR_TO_END_MOCK).toHaveBeenCalledTimes(1);
     fireEvent.change(input, { target: { value: EXAMPLE_NEW_VALUE } });
     await waitFor(() => {
-      expect(ON_CHANGE_MOCK).toBeCalledTimes(1);
+      expect(ON_CHANGE_MOCK).toHaveBeenCalledTimes(1);
       expect(ON_CHANGE_MOCK).toBeCalledWith({
         ...EXAMPLE_CELL,
         value: EXAMPLE_NEW_VALUE,
