@@ -56,6 +56,7 @@
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^16.1.0",
     "@types/array.prototype.flatmap": "^1.2.2",
+    "@types/jest": "^29.5.14",
     "@types/node": "^16.7.10",
     "@types/react": "^18.0.0",
     "@types/react-dom": "^18.0.0",

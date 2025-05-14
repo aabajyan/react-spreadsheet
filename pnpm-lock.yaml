@@ -70,6 +70,9 @@ importers:
       '@types/array.prototype.flatmap':
         specifier: ^1.2.2
         version: 1.2.6
+      '@types/jest':
+        specifier: ^29.5.14
+        version: 29.5.14
       '@types/node':
         specifier: ^16.7.10
         version: 16.18.126
