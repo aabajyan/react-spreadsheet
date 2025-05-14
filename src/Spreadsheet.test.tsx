@@ -359,7 +359,7 @@ describe("<Spreadsheet />", () => {
     const element = getSpreadsheetElement();
     const cells = element.querySelectorAll("td");
     expect(cells.length).toBe(4);
-    const [a1, b1, c1, d1] = cells;
+    const [a1, b1, c1, d1] = cells as any as HTMLElement[];
     expect(a1.textContent).toBe("1");
     expect(b1.textContent).toBe("2");
     expect(c1.textContent).toBe("3");
