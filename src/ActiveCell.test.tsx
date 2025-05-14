@@ -67,7 +67,7 @@ describe("<ActiveCell />", () => {
     expect(activeCell).not.toBeNull();
     expect(activeCell).toHaveClass("Spreadsheet__active-cell--edit");
     expect(MOCK_DATA_EDITOR).toHaveBeenCalledTimes(2);
-    expect(MOCK_DATA_EDITOR).toBeCalledWith(
+    expect(MOCK_DATA_EDITOR).toHaveBeenCalledWith(
       {
         row: Point.ORIGIN.row,
         column: Point.ORIGIN.column,
@@ -93,7 +93,7 @@ describe("<ActiveCell />", () => {
     if (!input) throw new Error("input not found");
     fireEvent.change(input, { target: { value: "test" } });
     expect(DISPATCH_MOCK).toHaveBeenCalledTimes(1);
-    expect(DISPATCH_MOCK).toBeCalledWith(
+    expect(DISPATCH_MOCK).toHaveBeenCalledWith(
       Actions.setCellData(Point.ORIGIN, {
         value: "test",
       })

@@ -280,7 +280,7 @@ describe("writeTextToClipboard()", () => {
   };
   util.writeTextToClipboard(event as unknown as ClipboardEvent, EXAMPLE_STRING);
   expect(event.clipboardData.setData).toHaveBeenCalledTimes(1);
-  expect(event.clipboardData.setData).toBeCalledWith(
+  expect(event.clipboardData.setData).toHaveBeenCalledWith(
     util.PLAIN_TEXT_MIME,
     EXAMPLE_STRING
   );
@@ -328,7 +328,7 @@ describe("readTextFromClipboard()", () => {
       EXAMPLE_STRING
     );
     expect(EXAMPLE_CLIPBOARD_EVENT.clipboardData?.getData).toHaveBeenCalledTimes(1);
-    expect(EXAMPLE_CLIPBOARD_EVENT.clipboardData?.getData).toBeCalledWith(
+    expect(EXAMPLE_CLIPBOARD_EVENT.clipboardData?.getData).toHaveBeenCalledWith(
       util.PLAIN_TEXT_MIME
     );
   });
@@ -345,7 +345,7 @@ describe("readTextFromClipboard()", () => {
     );
     // @ts-ignore
     expect(MOCK_CLIPBOARD_DATA.getData).toHaveBeenCalledTimes(1);
-    expect(MOCK_CLIPBOARD_DATA.getData).toBeCalledWith("Text");
+    expect(MOCK_CLIPBOARD_DATA.getData).toHaveBeenCalledWith("Text");
     // Undefine as it is not a native JS-DOM property
     // @ts-ignore
     delete window.clipoardData;
@@ -398,6 +398,6 @@ describe("isFocusedWithin()", () => {
     matchesMock.mockReturnValueOnce(matches);
     expect(util.isFocusedWithin(element)).toBe(expected);
     expect(matchesMock).toHaveBeenCalledTimes(1);
-    expect(matchesMock).toBeCalledWith(util.FOCUS_WITHIN_SELECTOR);
+    expect(matchesMock).toHaveBeenCalledWith(util.FOCUS_WITHIN_SELECTOR);
   });
 });

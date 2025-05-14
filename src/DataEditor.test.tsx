@@ -36,7 +36,7 @@ describe("<DataEditor />", () => {
     expect(input).not.toBeNull();
     expect(ON_CHANGE_MOCK).toHaveBeenCalledTimes(0);
     expect(MOVE_CURSOR_TO_END_MOCK).toHaveBeenCalledTimes(1);
-    expect(MOVE_CURSOR_TO_END_MOCK).toBeCalledWith(input);
+    expect(MOVE_CURSOR_TO_END_MOCK).toHaveBeenCalledWith(input);
   });
   test("renders correctly with null value", () => {
     render(<DataEditor {...EXAMPLE_PROPS} cell={{ value: null }} />);
@@ -69,7 +69,7 @@ describe("<DataEditor />", () => {
     fireEvent.change(input, { target: { value: EXAMPLE_NEW_VALUE } });
     await waitFor(() => {
       expect(ON_CHANGE_MOCK).toHaveBeenCalledTimes(1);
-      expect(ON_CHANGE_MOCK).toBeCalledWith({
+      expect(ON_CHANGE_MOCK).toHaveBeenCalledWith({
         ...EXAMPLE_CELL,
         value: EXAMPLE_NEW_VALUE,
       });
